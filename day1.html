@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: red;
+        }
+        p{
+            color: blue;
+        }
+        pre{
+            color: violet;
+        }
+        .d1{
+            border:5px solid green;
+        }
+        .d2{
+            border:5px solid green;
+        }
+        .diff{
+            display: grid;
+            grid-template-columns: auto auto;
+            border:5px solid green;
+        }
+        .var{
+            border:5px solid green;
+        }
+        .let{
+            border:5px solid green;
+        }
+        .const{
+            border:5px solid green;
+        }
+        .vlc{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            border:5px solid green; 
+        }
+    </style>
+</head>
+<body>
+
+
+   <h2> Q1.Difference between “ == “ and “ === “ operators.</h2>
+   <p>== and === operators in JavaScript is used for comparing two variables</p>
+   <div class="diff">
+        <div class="d1">
+           <p>== compares the two variables,but it ignores the datatype of the variable</p>
+           <p>it compares slower</p>
+           <pre>
+            var x="5";
+            var y=5;
+            if(x==y){
+                return "hi";
+            }
+           </pre>
+           <p>it prints hi</p>
+        </div>
+        <div class="d2">
+            <p>=== compares the two variables and also compares the datatypes of the variables</p>
+            <p>it works faster</p>
+            <pre>
+                var x="5";
+                var y=5;
+                if(x===y){
+                    return "hi";
+                }else{
+                    return "sorry";
+                }
+            </pre>
+            <p>it prints sorry,because x is a string and y is number.a difference in datatype</p>
+        </div>
+   </div>
+
+
+
+   <h2>q2.What is the spread operator?</h2>
+   <p>The JavaScript spread operator ( ... ) allows us to quickly copy all or part of an existing array or object into another array or object.</p>
+            <pre>
+                function sum(a,b,c) {
+                    return a+b+c;
+                  }
+                  var numbers=[1,2,3];
+                  console.log(sum(...numbers));
+            </pre>
+
+
+
+    <h2>q3.What are the differences between var, let and const?</h2>
+    <div class="vlc">
+        <div class="let">
+            <p> let is a block scoped.</p>
+            <p>var cannot be redeclared and can be modified later</p>
+        </div>
+        <div class="const">
+            <p> const is a block scoped.</p>
+            <p>var cannot be redeclared and cannot be modified later</p>
+        </div>
+        <div class="var">
+            <p>var is a Global or Functional Scoped.</p>
+            <p>var can be redeclared and can also be modified later</p>
+        </div>
+    </div>
+
+
+
+    <h2>q4.What is execution context</h2>
+    <p>The browser's JavaScript engine then creates a special environment to handle the transformation
+        and execution of this JavaScript code. This environment is known as the Execution Context.</p>
+    <p>Execution context is defined as the environment in which the JavaScript code is executed.</p>
+    <p>By environment, I mean the value of this , variables, objects, and functions JavaScript code has access to at a particular time.</p>
+    <p>There are two kinds of Execution Context in JavaScript:
+        1. Global Execution Context (GEC)
+        2. Function Execution Context (FEC)</p>
+
+
+    
+
+        <h2>q5.What is creation phase and execution phase?</h2>
+       <p>
+        Global execution context it is the first execution context that is created by js engine
+        before any code is executed.(when the file first load in the browser)
+       </p> 
+       <p>
+        it has 2 phases:
+       </p>
+        <div class="diff">
+            <div class="d1">
+                <h2>1)Creation phase:</h2>
+                <p>
+                    -this phase allows us to allocate memmory to all the variables but real value will not be assigned,
+                    only value is assigned as 'undefined'
+                </p>
+               <pre>
+                -example:
+                  var a = undefined;
+               </pre>
+            </div>
+            <div class="d2">
+                <h2>2)Execution phase:</h2>
+                <p>
+                    -In this phase variables will get assigned to there real values and 
+            the function will get executed when some one calls it.
+                </p>
+                <pre>
+                -example:
+                var a = 9;
+                </pre>
+            </div>
+       </div>
+
+       <h2>q6.What is meant by first class functions</h2>
+    <p>A programming language is said to have First-class functions when functions in that 
+        language are treated like any other variable.
+    In such a language, </p>
+        <p>1. a function can be passed as an argument to other functions, </p>
+        <p>2. can be returned by another function</p>
+        <p>3. can be assigned as a value to a variable.</p>
+        <pre>
+            const greetings = function() {
+                console.log("good morning");
+             }
+             greetings();
+        </pre>
+
+        <h2>q7.What are closures?Give an example?</h2>
+<p> A closure is the combination of a function and the lexical environment within which that function was declared.
+    It is the function having access to the parent scope,even after the parent function is closed.</p>
+<pre>
+    function global(){
+        let a=10;
+        function local(){
+            console.log(a);
+        }
+        local()
+    }
+    global();
+</pre>
+    </body>
+</html>
