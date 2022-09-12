@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    h2{
+        color: red;
+    }
+    p{
+        color: blue;
+    }
+    pre{
+        color: violet;
+    }
+    </style>
+    
+</head>
+<body>
+   <h2> Q1.What are promises and why do we need them?</h2>
+<p>promise allows us to handle an asynchronous action's eventual success value or failure reason.</p> 
+<p>This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value,
+    the asynchronous method returns a promise to supply the value at some point in the future.</p> 
+
+<p>Promises are used in one of these three states</p> 
+<p>1.pending: initial state, neither fulfilled nor rejected.</p>
+<p>2.fulfilled: meaning that the operation was completed successfully.</p>
+<p>3.rejected: meaning that the operation failed.</p>
+
+<pre>
+    const getPromise =(value) => {
+        return new Promise((resolve,reject) =>{
+         if(value =="yes"){
+             resolve(val)
+         }else{
+             reject("Promise Rejected")
+         }
+        })
+     }
+     getPromise("yes").then((data)=>{
+         console.log(data);
+     }).catch((err)=>{
+         console.log(err);
+     })
+ </pre>
+<h2>Q2.What is the purpose of async/await keywords?</h2> 
+<p>An async function is a function declared with the async keyword, and the await keyword is given within async.</p> 
+<p> The purpose of async / await is to simplify the syntax necessary to consume promise-based APIs.</p> 
+<p>Async functions always return a promise.</p>
+
+<pre>
+    async function Result(){
+        console.log('Result');
+        let res=await Result(20);
+        return res;
+    }
+    console.log('Before calling Result')
+    let a=Result()
+    console.log('After calling Result');
+    console.log(a);
+    a.then((data)=>{
+        console.log(data);
+    })
+</pre>
+<h2>Q3.What is hoisting?</h2> 
+<p>Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.</p> 
+<p>JavaScript only hoists declarations, not initialisation.</p> 
+<p>Hoisting supports only for var keyword and normal function</p>
+
+<pre>
+    console.log(steve); 
+    var steve = 'Hoisting';
+</pre>
+       
+<h2>Q4.What is the DOM?</h2> 
+<p>DOM stands for Document Object Model,(DOM) is a programming interface for web documents.</p> 
+<p>It represents the page so that programs can change the document structure, style, and content.</p>
+<p>The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.</p>
+
+<h2> Q5.Difference between undefined vs not defined vs NaN?</h2>
+<b>Undefined-</b> 
+<p>JavaScript assigns undefined to any variable that has been declared but not initialized or defined.</p> 
+   <pre>let steve;
+    console.log(steve); </pre> 
+   
+<b>Not defined-</b> 
+<p>A not defined is a variable that is not declared at a given point of time with declaration keyword like var, let, or const.</p>
+
+   <pre>let steve = 25;
+    console.log(hogan); </pre> 
+ 
+<b> NaN-</b>
+<p>it is "not a number".it represents a value which is not a valid number.</p>
+
+<pre>console.log("1"+2);</pre>
+  
+ 
+ <h2>Q6.How many operators do we have in JS ?</h2>
+<p>In JavaScript, an operator is a special symbol used to perform operations on operands</p>
+<p>We have 6 types of operators in JS they are</p>
+    <p> 1. Arithmetic Operators</p>
+    <p>2. Comparison Operators</p> 
+    <p> 3. Logical Operators</p>
+    <p>4. Assignment Operators </p>
+    <p>5. Conditional Operators</p>
+    <p>6. Ternary Operator</p>
+               
+    
+<h2>Q7.What is callback hell</h2> 
+<p>Callback Hell is an anti-pattern with multiple nested callbacks</p> 
+<p>which makes code hard to read and debug when dealing with asynchronous logic.</p> 
+
+<pre>const shape = () => {
+    setTimeout(() => {
+        console.log("1");
+        setTimeout(() => {
+            console.log("2");
+            setTimeout(() => {
+                console.log("3");
+            }, 3000)
+        }, 2000)
+    }, 1000)
+}
+shape();</pre>
+
+<h2>Q8.What is promise chaining</h2> 
+<p>Promise chaining is a syntax that allows you to chain together multiple asynchronous tasks in a specific order.g
+</p> 
+<pre>
+    let print =new Promise((resolve,reject)=>{
+     
+        setTimeout(()=>{
+            resolve(console.log("1"))
+        },1000)
+       
+    }).then( ()=> new Promise((resolve,reject)=>{
+    
+       setTimeout(()=>{
+        resolve(console.log("2"))
+       },2000)
+    
+    }) ).then( ()=> new Promise((resolve,reject)=>{
+    
+       setTimeout(()=>{
+        resolve(console.log("3"))
+       },3000)
+    
+    }) ).then(()=> new Promise((resolve,reject)=>{
+       
+        setTimeout(()=>{
+            resolve(console.log("4"))
+        },4000)
+    
+    })).then(()=> new Promise((resolve,reject)=>{
+       
+        setTimeout(()=>{
+            resolve(console.log("5"))
+        },5000)
+    })).then( ()=> new Promise((resolve,reject)=>{
+       
+        setTimeout(()=>{
+           res(console.log("6"))
+        },6000)
+    
+    })).then(()=> new Promise((resolve,reject)=>{
+        
+        setTimeout(()=>{
+            res(console.log("7"))
+            console.log("end of promises");
+        },7000)
+    }));
+ </pre>
+          
+    
+<h2>Q9.What are arrow functions? </h2>
+<p>arrow functions are introduced in ES6 version of js.</p> 
+<p>Arrow functions are a new way to write anonymous function expressions.</p> 
+<p>It allows you to create functions in a cleaner way compared to regular functions. </p>
+
+<pre>
+    const steve = (a) =>{
+        return a;
+     } 
+     steve();
+</pre>
+     
+ <h2>Q10.Give an example of async/await?</h2>
+ <pre>
+    async function Result(){
+        console.log('Result');
+        let res=await Result(20);
+        return res;
+    }
+    console.log('Before calling Result')
+    let a=Result()
+    console.log('After calling Result');
+    console.log(a);
+    a.then((data)=>{
+        console.log(data);
+    })
+</pre>
+</body>
+</html>
